@@ -1,0 +1,43 @@
+/*select
+radnik.ime,
+radnik.prezime
+from
+radnik
+order by
+pr
+
+create proc ImePrezime
+as
+begin
+select
+radnik.ime,
+radnik.prezime
+from radnik
+order by prezime
+end
+EXecute ImePrezime
+		*/	
+create proc radnikkvalifikacijaa 
+(
+@minKoeficijent as float,
+@maxKoeficijent as float
+)
+as
+begin
+select
+ime,
+prezime,
+sektor.naziv,
+kvalifikacija.naziv,
+kvalifikacija.koeficijent
+
+from
+sektor inner join radnik on sektor.sektor_id=radnik.sektor_id inner join kvalifikacija on radnik.kvalifikacija_id=kvalifikacija.kvalifikacija_id
+where
+kvalifikacija.koeficijent>=@minKoeficijent
+and
+kvalifikacija.koeficijent<=@maxKoeficijent
+order by kvalifikacija.koeficijent
+end
+
+execute radnikkvalifikacijaa 2 , 9
