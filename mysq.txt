@@ -41,3 +41,27 @@ order by kvalifikacija.koeficijent
 end
 
 execute radnikkvalifikacijaa 2 , 9
+
+
+
+
+create proc radnikkoeficijentprezimee
+(@minkoeficijnet as float = NULL,
+@maxkoeficijent as float = NULL,
+@prezime as nvarchar(50))
+as begin
+select
+radnik.ime,
+radnik.prezime,
+sektor.naziv as naziv_sektora,
+kvalifikacija.koeficijent
+from
+sektor inner join radnik on sektor.sektor_id=radnik.sektor_id inner join kvalifikacija on kvalifikacija.kvalifikacija_id=radnik.kvalifikacija_id
+where
+(@minkoeficijnet is null or koeficijent>=@minkoeficijnet) and
+(@maxkoeficijent is null or koeficijent<=@maxkoeficijent) and
+(@prezime is null or radnik.prezime like '%' + @prezime + '%')
+order by radnik.prezime
+end
+
+execute radnikkoeficijentprezimee 3,null,null
