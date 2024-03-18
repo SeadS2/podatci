@@ -65,3 +65,27 @@ order by radnik.prezime
 end
 
 execute radnikkoeficijentprezimee 3,null,null
+
+
+
+
+
+
+
+
+
+create procedure kataloggg
+(
+    @ID int = NULL,
+    @naziv_proizvoda AS nvarchar(100) = NULL
+)
+as
+begin
+    select Proizvodi.naziv_proizvoda, Proizvodi.Proizvod_id 
+    from Proizvodi
+    where (@ID IS NULL OR Proizvodi.Proizvod_id = @ID)
+    AND (@naziv_proizvoda IS NULL OR Proizvodi.naziv_proizvoda LIKE '%' + @naziv_proizvoda + '%')
+end
+
+exec kataloggg 2,NULL
+
