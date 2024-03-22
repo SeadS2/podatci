@@ -1,0 +1,8 @@
+CISCKO
+
+RUTER
+configure terminal
+interface fastEthernet 0/0..
+ip address i subneet maska 
+no shutdown 
+
