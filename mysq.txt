@@ -89,3 +89,31 @@ end
 
 exec kataloggg 2,NULL
 
+
+
+
+
+
+
+
+
+create proc pretraga
+(
+@datum_zaposlenja as date
+)
+as 
+begin
+select
+sektor.naziv,
+radnik.ime,
+radnik.prezime,
+radnik.datum_zaposljenja
+from
+sektor inner join radnik on sektor.sektor_id = radnik.sektor_id
+where
+radnik.datum_zaposljenja>=@datum_zaposlenja
+end
+
+exec pretraga '2016-01-01'
+
+
