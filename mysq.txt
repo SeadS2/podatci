@@ -114,6 +114,37 @@ where
 radnik.datum_zaposljenja>=@datum_zaposlenja
 end
 
+
+
+
+zadnji cas 
+
+
+/*
+napraviti proceduru za automatski unos podataka u tabeli radnik
+*/
+
+
+create procedure radnikUnos
+@broj as int,
+@ime as nvarchar(100),
+@prezime as nvarchar(100),
+@datum_rodjenja as date,
+@datume_zaposlenja as date,
+@koeficijent as int,
+@sektor as int
+as
+BEGIN
+insert into radnik (radnik_id,ime,prezime,datum_rodjena,datum_zaposlenja,kvalifikacija_id,sektor_id)
+values
+(@broj,@ime,@prezime,@datum_rodjenja,@datume_zaposlenja,@koeficijent,@sektor)
+
+END
+
+exec radnikUnos 19,'Hamza','Basara','2005-12-25','2024-3-25',8,3
+
+
+
 exec pretraga '2016-01-01'
 
 
