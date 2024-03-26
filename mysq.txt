@@ -148,3 +148,104 @@ exec radnikUnos 19,'Hamza','Basara','2005-12-25','2024-3-25',8,3
 exec pretraga '2016-01-01'
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* napraviti bazu podataka pod nazivom procedura2603 unutarte baze napraviti tabelu pod nazivom ucenik(ucenik_id ime,prezime,datum rodjenja,adresa,odjeljenje,smjer_id )
+i tabelu smjer (smjer_id,naziv smjera broj odjeljenja)
+
+2
+napravti proceduru za unoi podataka i az tabelu ucenik i za tabelu smjer
+
+3
+
+unijeti po 3 unosa u obe tabele preko procedure napravljeneu zadatku br 2*/
+
+
+
+/*create database procedura2603
+use procedura2603
+
+
+
+
+create procedure radnikUnos
+@broj as int,
+@ime as nvarchar(100),
+@prezime as nvarchar(100),
+@datum_rodjenja as date,
+@datume_zaposlenja as date,
+@koeficijent as int,
+@sektor as int
+as
+BEGIN
+insert into radnik (radnik_id,ime,prezime,datum_rodjena,datum_zaposlenja,kvalifikacija_id,sektor_id)
+values
+(@broj,@ime,@prezime,@datum_rodjenja,@datume_zaposlenja,@koeficijent,@sektor)
+
+END
+
+exec radnikUnos 19,'Hamza','Basara','2005-12-25','2024-3-25',8,3
+
+
+
+exec pretraga '2016-01-01'
+
+
+*/
+/*
+create proc unos1
+@id as int,
+@ime as nvarchar(250),
+@prezime as nvarchar(250),
+@datum_rodjenja as date,
+@adresa as nvarchar(250),
+@smjer_id as int,
+@odjeljenje as nvarchar(250)
+as
+begin
+insert into ucenik(ucenik_id,ime,prezime,datum_rodjenja,adresa,smjer_id,odjeljenje)
+values
+(@id,@ime,@prezime,@datum_rodjenja,@adresa,@smjer_id, @odjeljenje)
+end
+
+exec unos1 1,'Samed','Basara','2006-03-12','Vrtuljak',1,'IIb'
+
+
+create proc unos2
+@smjer_id as int,
+@naziv as nvarchar(250),
+@broj as int,
+@razrednik as nvarchar(250)
+as
+begin
+insert into smjer(smjer_id,naziv_smjera,broj_odjeljenja,razrednik)
+values
+(@smjer_id,@naziv,@broj,@razrednik)
+end
+
+exec unos2 1,'Racunarski',2,'Enes'
+*/
+
+
+
+
+
